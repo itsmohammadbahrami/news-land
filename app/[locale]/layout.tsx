@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 import StoreProvider from "../StoreProvider";
 
 import "../globals.css";
+import AppLayout from "@/components/layout/AppLayout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,7 +33,9 @@ export default async function RootLayout({
         <StoreProvider>
           <AntdRegistry>
             <NextIntlClientProvider messages={messages}>
-              {children}
+              <AppLayout>
+                {children}
+              </AppLayout>
             </NextIntlClientProvider>
           </AntdRegistry>
         </StoreProvider>

@@ -3,11 +3,12 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import StoreProvider from "../StoreProvider";
 
-import "../globals.css";
+import { getMessages } from 'next-intl/server';
+import StoreProvider from "@/app/StoreProvider";
 import AppLayout from "@/components/layout/AppLayout";
+
+import "@/app/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

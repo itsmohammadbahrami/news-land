@@ -1,4 +1,5 @@
 'use client'
+
 import { ReactFC } from '@/types/app/app.type'
 import { ConfigProvider, Layout, theme } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
@@ -10,7 +11,7 @@ const AppLayout: React.FC<ReactFC> = ({ children }) => {
       algorithm: theme.defaultAlgorithm
     }}>
       <Layout>
-        <Header className='flex items-center gap-2'>
+        <Header className='flex items-center gap-2 !bg-transparent border-b-2 justify-between'>
           <AppHeader />
         </Header>
         <Content>

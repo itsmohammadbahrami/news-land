@@ -1,17 +1,11 @@
-'use client'
-
-import NewsIcon from '@/assets/icons/news.svg'
-import { Typography } from 'antd'
-import { useTranslations } from 'next-intl'
+import Logo from '@/assets/icons/logo.svg'
+import AppLanguage from './app-language/AppLanguage'
 
 const AppHeader = () => {
-  const texts = useTranslations("index")
   return (
     <>
-      <NewsIcon />
-      <Typography.Text className='!text-white !text-2xl font-medium'>
-        {texts("title")}
-      </Typography.Text>
+      <Logo />
+      <AppLanguage />
     </>
   )
 }

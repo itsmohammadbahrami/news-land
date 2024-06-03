@@ -1,5 +1,8 @@
 {
    "index": {
       "title": "News Land"
+   },
+   "header": {
+      "inputPlaceholder": "input search text"
    }
 }

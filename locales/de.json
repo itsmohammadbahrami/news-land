@@ -1,5 +1,8 @@
 {
    "index": {
       "title": "Nachrichtenland"
+   },
+   "header": {
+      "inputPlaceholder": "Suchtext eingeben"
    }
 }

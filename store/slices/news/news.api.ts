@@ -7,35 +7,44 @@ import { convertGuardianApiData, convertNewsApiData, convertTimesApiData } from 
 
 export const getNews = createAsyncThunk(
     'news/getNews',
-    async () => {
-        try {
-            const newsAPIReq = axiosNewsAPI.get('',
-                {
-                    validateStatus: null,
-                }
-            );
-            const guardianAPIReq = axiosGuardianAPI.get('',
-                {
-                    validateStatus: null,
-                }
-            );
-            const timesAPIReq = axiosNYTimesAPI.get('',
-                {
-                    validateStatus: null,
-                }
-            );
+    async (queries?: { searchText?: string }) => {
 
-            const [newsAPIRes, guardianAPIRes, timesAPIRes] = await axios.all([newsAPIReq, guardianAPIReq, timesAPIReq]);
+        try {
+            const newsAPIReq = axiosNewsAPI.get(
+                queries?.searchText ? 'everything' : 'top-headlines?country=us',
+                {
+                    validateStatus: null,
+                    params: { q: queries?.searchText, pageSize: 20 },
+                }
+            );
+            // const guardianAPIReq = axiosGuardianAPI.get('',
+            //     {
+            //         validateStatus: null,
+            // params: { q: searchText }
+            //     }
+            // );
+            // const timesAPIReq = axiosNYTimesAPI.get('',
+            //     {
+            //         validateStatus: null,
+            // params: { q: searchText }
+            //     }
+            // );
+
+            const [newsAPIRes,
+                // guardianAPIRes, timesAPIRes
+            ] = await axios.all([newsAPIReq,
+                // guardianAPIReq, timesAPIReq
+            ]);
 
             const data: INews[] = [
                 ...convertNewsApiData(newsAPIRes.data?.articles),
-                ...convertGuardianApiData(guardianAPIRes.data?.response?.results),
-                ...convertTimesApiData(timesAPIRes.data?.response?.docs),
+                // ...convertGuardianApiData(guardianAPIRes.data?.response?.results),
+                // ...convertTimesApiData(timesAPIRes.data?.response?.docs),
             ]
 
             return data;
         } catch (error) {
-            throw error;
+            console.log(error);
         }
     }
 )

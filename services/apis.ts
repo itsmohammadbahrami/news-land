@@ -39,11 +39,16 @@ Object.keys(axiosInstances).forEach(axiosKey => {
     const key = axiosKey as keyof typeof axiosInstances;
     axiosInstances[key].interceptors.request.use(
         request => {
-            request.params = {
+            const params = {
                 ...request.params,
                 [axiosAPIKeys[key].urlKey]:
                     axiosAPIKeys[key].apiKey,
             };
+
+            request.params = Object.fromEntries(
+                Object.entries(params).filter(([_, value]) => !!value)
+            );
+
             return request;
         },
         error => {

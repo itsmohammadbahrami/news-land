@@ -18,7 +18,9 @@ export const getNews = createAsyncThunk(
                 {
                     validateStatus: null,
                     params: {
-                        q: queries?.searchText ?? undefined,
+                        q:
+                            isSearchTextAvailable ? queries?.searchText :
+                                isDateAvailable ? 'technology' : undefined,
                         pageSize: 20,
                         from: queries?.date?.start ?? undefined,
                         to: queries?.date?.end ?? undefined,

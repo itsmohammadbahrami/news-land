@@ -9,7 +9,7 @@ import { getArray } from '@/utils/utils'
 import { getNews } from '@/store/slices/news/news.api'
 import NewsList from '../news-list/NewsList'
 
-const tabComponent = [<NewsList key='news-list' />, <>Feed</>]
+const tabComponent = [<NewsList key='all-news-list' />, <NewsList key='feed-news-list' />]
 
 
 const MainTabs = () => {

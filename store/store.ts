@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import newsReducer from './slices/news/news.slice'
+import filtersReducer from './slices/filters/filters.slice'
 
 export const makeStore = () => {
     return configureStore({
         reducer: {
-            newsState: newsReducer
+            news: newsReducer,
+            filters: filtersReducer
         }
     })
 }

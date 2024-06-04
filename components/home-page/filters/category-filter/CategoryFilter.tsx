@@ -1,12 +1,15 @@
 import { useState } from "react"
 
 import { useTranslations } from "next-intl"
+import { useAppDispatch } from "@/store/hooks";
 import { Typography } from "antd"
 import { getArray } from "@/utils/utils"
 import { INewsCategory } from "@/types/news/news.type";
+import { setFiltersCategory } from "@/store/slices/filters/filters.slice";
 import classnames from "classnames";
 
 const CategoryFilter = () => {
+    const dispatch = useAppDispatch()
     const texts = useTranslations("filters")
 
     return (
@@ -17,7 +20,7 @@ const CategoryFilter = () => {
 
             <Tags
                 items={getArray(texts("categoryItems"))}
-                onClick={(item) => { }} />
+                onClick={(item) => dispatch(setFiltersCategory(item))} />
         </div>
     )
 }

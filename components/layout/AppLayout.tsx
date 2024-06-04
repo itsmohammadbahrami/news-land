@@ -10,7 +10,7 @@ const AppLayout: React.FC<IReactFC> = ({ children }) => {
     <ConfigProvider theme={{
       algorithm: theme.defaultAlgorithm
     }}>
-      <Layout>
+      <Layout className='overflow-hidden'>
         <Header className='flex items-center gap-2 !bg-transparent border-b-2 justify-between'>
           <AppHeader />
         </Header>

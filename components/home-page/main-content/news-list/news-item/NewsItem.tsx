@@ -10,7 +10,7 @@ interface Props {
 const NewsItem: React.FC<Props> = ({ news }) => {
     return (
         <section
-            className="grid grid-cols-2 gap-5 pe-4 py-4 cursor-pointer hover:shadow-xl hover:rounded-lg transition-shadow"
+            className="grid grid-cols-3 gap-5 pe-4 py-4 cursor-pointer hover:shadow-xl hover:rounded-lg transition-shadow"
             onClick={() => window.open(news.newsUrl, '_blank')}
         >
             <div className="row-span-3">
@@ -22,13 +22,13 @@ const NewsItem: React.FC<Props> = ({ news }) => {
                     height='13rem'
                 />
             </div>
-            <Typography.Text className="!text-xl !font-medium line-clamp-3">
+            <Typography.Text className="!text-xl !font-medium line-clamp-3 col-span-2">
                 {news.title}
             </Typography.Text>
-            <Typography.Text className="!text-base !font-light line-clamp-2">
+            <Typography.Text className="!text-base !font-light line-clamp-2 col-span-2">
                 {news.description}
             </Typography.Text>
-            <div className="flex items-center">
+            <div className="flex items-center col-span-2">
                 <CustomTag text={news.category} />
                 <CustomTag text={news.source} />
                 {

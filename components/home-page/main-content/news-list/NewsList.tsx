@@ -7,7 +7,7 @@ const NewsList = () => {
     if (loading) return <div>Loading...</div>
 
     return (
-        <section className="flex flex-col divide-y-[1px] divide-gray-300">
+        <section className="flex flex-col divide-y-[1px] divide-gray-300 pe-10">
             {
                 news &&
                 news.length > 0 &&

@@ -7,5 +7,10 @@
    },
    "mainContent": {
       "tabs": "['All News', 'My Feed']"
+   },
+   "filters": {
+      "title": "Filters",
+      "category": "Category",
+      "categoryItems": "['All','News.org','The Guardian','New York Times']"
    }
 }

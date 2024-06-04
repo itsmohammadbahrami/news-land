@@ -1,7 +1,7 @@
 import { useAppDispatch } from '@/store/hooks'
 import { useTranslations } from 'next-intl'
 import { Input } from 'antd'
-import { getNews } from '@/store/slices/news/news.api'
+import { setSearchText } from '@/store/slices/news/news.slice'
 
 const Search = () => {
     const dispatch = useAppDispatch()
@@ -13,7 +13,7 @@ const Search = () => {
             placeholder={texts("inputPlaceholder")}
             allowClear
             onSearch={(searchText, e, info) =>
-                dispatch(getNews(info?.source === 'input' ? { searchText } : undefined))
+                dispatch(setSearchText(info?.source === 'input' ? searchText : ''))
             }
         />
     )

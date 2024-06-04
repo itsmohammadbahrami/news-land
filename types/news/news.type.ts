@@ -13,4 +13,5 @@ export interface INews {
 export interface INewsState {
     loading?: boolean;
     news?: INews[];
+    searchText?: string;
 }

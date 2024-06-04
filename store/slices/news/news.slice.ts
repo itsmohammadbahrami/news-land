@@ -1,18 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { INewsState } from '@/types/news/news.type'
 import { getNews } from './news.api'
 
 const initialState: INewsState = {
     loading: false,
-    news: undefined
+    news: undefined,
+    searchText: ''
 }
 
 const newsSlice = createSlice({
     name: 'news',
     initialState,
     reducers: {
-
+        setSearchText: (state, action: PayloadAction<string>) => {
+            state.searchText = action.payload
+        }
     },
     extraReducers: (builder) => {
         builder.addCase(getNews.pending, (state) => {
@@ -28,5 +31,5 @@ const newsSlice = createSlice({
     }
 })
 
-export const { } = newsSlice.actions
+export const { setSearchText } = newsSlice.actions
 export default newsSlice.reducer

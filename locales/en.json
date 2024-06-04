@@ -11,6 +11,7 @@
    "filters": {
       "title": "Filters",
       "category": "Category",
-      "categoryItems": "['All','News.org','The Guardian','New York Times']"
+      "categoryItems": "['All','News.org','The Guardian','New York Times']",
+      "date": "Date"
    }
 }

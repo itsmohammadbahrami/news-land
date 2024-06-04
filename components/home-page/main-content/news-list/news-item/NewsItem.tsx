@@ -25,7 +25,7 @@ const NewsItem: React.FC<Props> = ({ news }) => {
             <Typography.Text className="!text-xl !font-medium line-clamp-3 col-span-2">
                 {news.title}
             </Typography.Text>
-            <Typography.Text className="!text-base !font-light line-clamp-2 col-span-2">
+            <Typography.Text className="!text-base !font-light line-clamp-2 col-span-2 max-h-12">
                 {news.description}
             </Typography.Text>
             <div className="flex items-center col-span-2">

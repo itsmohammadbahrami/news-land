@@ -4,5 +4,8 @@
    },
    "header": {
       "inputPlaceholder": "input search text"
+   },
+   "mainContent": {
+      "tabs": "['All News', 'My Feed']"
    }
 }

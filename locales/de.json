@@ -4,5 +4,8 @@
    },
    "header": {
       "inputPlaceholder": "Suchtext eingeben"
+   },
+   "mainContent": {
+      "tabs": "['Alle Nachrichten', 'Mein Feed']"
    }
 }

@@ -2,7 +2,7 @@ import MainContent from "./main-content/MainContent"
 
 const HomePage = () => {
     return (
-        <section className="w-full h-[calc(100vh-4.063rem)] py-4 px-[3.125rem] flex">
+        <section className="w-full h-[calc(100vh-4.063rem)] py-4 px-[3.125rem] flex bg-white">
             <main className='flex-1'>
                 <MainContent />
             </main>

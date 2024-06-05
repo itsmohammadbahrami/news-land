@@ -26,6 +26,7 @@ const DateFilter = () => {
                 disabledDate={(date) =>
                     date > dayjs().endOf('day')
                 }
+                inputReadOnly
             />
         </div>
     )

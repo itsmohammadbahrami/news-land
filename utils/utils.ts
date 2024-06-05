@@ -59,3 +59,9 @@ export const removeDuplicates = (arr: any[] | undefined, key: string) => {
 export const isDesktop = (): boolean => window.innerWidth > 768;
 
 export const isMobile = (): boolean => window.innerWidth <= 768;
+
+export const removeEmptyItems = (obj: any): any => {
+    return Object.fromEntries(
+        Object.entries(obj).filter(([_, value]) => !!value)
+    );
+}

@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { removeEmptyItems } from '@/utils/utils';
+
 const createAxios = (baseURL?: string) =>
     axios.create({
         baseURL,
@@ -45,9 +47,7 @@ Object.keys(axiosInstances).forEach(axiosKey => {
                     axiosAPIKeys[key].apiKey,
             };
 
-            request.params = Object.fromEntries(
-                Object.entries(params).filter(([_, value]) => !!value)
-            );
+            request.params = removeEmptyItems(params)
 
             return request;
         },

@@ -3,7 +3,7 @@ import { useMemo } from "react"
 import { useTranslations } from "next-intl"
 import { Typography } from "antd"
 import { useAppSelector } from "@/store"
-import NewsItem from "./news-item/NewsItem"
+import NewsItem from "./news-item"
 
 const NewsList = () => {
     const { loading, news, selectedTab } = useAppSelector(state => state.news)

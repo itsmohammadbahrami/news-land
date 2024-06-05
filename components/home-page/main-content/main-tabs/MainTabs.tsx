@@ -7,7 +7,7 @@ import { Tabs, TabsProps } from 'antd'
 import { useAppDispatch, useAppSelector, getNews, setSelectedTab } from '@/store'
 import { getArray } from '@/utils'
 import NewsList from '../news-list'
-import Search from './search/Search'
+import Search from './search'
 
 const tabComponent = [<NewsList key='all-news-list' />, <NewsList key='feed-news-list' />]
 

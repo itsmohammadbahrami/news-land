@@ -4,6 +4,7 @@ import { Typography } from "antd"
 import { useTranslations } from "next-intl"
 import CategoryFilter from "./category-filter/CategoryFilter"
 import DateFilter from "./date-filter/DateFilter"
+import SourceFilter from "./source-filter/SourceFilter"
 
 const Filters = () => {
     const texts = useTranslations("filters")
@@ -15,6 +16,7 @@ const Filters = () => {
             </Typography.Text>
             <CategoryFilter />
             <DateFilter />
+            <SourceFilter />
         </section>
     )
 }

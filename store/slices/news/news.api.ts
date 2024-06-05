@@ -42,8 +42,8 @@ export const getNews = createAsyncThunk(
             //         validateStatus: null,
             // params: { 
             // q: searchText ,
-            // begin_date:queries?.date?.start?? undefined,
-            // end_date:queries?.date?.end?? undefined,
+            // begin_date:queries?.date?.start.replace(/-/g, '')?? undefined,
+            // end_date:queries?.date?.end.replace(/-/g, '')?? undefined,
             // }
             //     }
             // );

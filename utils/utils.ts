@@ -44,3 +44,14 @@ export const convertTimesApiData = (data: any[]): INews[] => {
         date: item.pub_date
     }))
 }
+
+export const removeDuplicates = (arr: any[] | undefined, key: string) => {
+    if (!arr || !arr.length) return
+
+    const seen = new Set();
+    return arr.filter(item => {
+        const duplicate = seen.has(item[key]);
+        seen.add(item[key]);
+        return !duplicate;
+    });
+};

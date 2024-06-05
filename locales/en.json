@@ -12,6 +12,8 @@
       "title": "Filters",
       "category": "Category",
       "categoryItems": "['All','News.org','The Guardian','New York Times']",
-      "date": "Date"
+      "date": "Date",
+      "source": "Source",
+      "sourcePlaceholder": "input source text"
    }
 }

@@ -5,5 +5,6 @@ export interface IFiltersState {
     date?: {
         start: string;
         end: string;
-    }
+    },
+    source: string;
 }

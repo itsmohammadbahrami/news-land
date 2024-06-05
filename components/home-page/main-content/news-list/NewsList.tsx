@@ -5,11 +5,14 @@ import NewsItem from "./news-item/NewsItem"
 
 const NewsList = () => {
     const { loading, news } = useAppSelector(state => state.news)
-    const { category } = useAppSelector(state => state.filters)
+    const { category, source } = useAppSelector(state => state.filters)
 
     const filteredNews = useMemo(() =>
-        news?.filter(newsItem => category !== 'All' ? newsItem.category === category : true)
-        , [category, news]);
+        news?.filter(newsItem =>
+            (category !== 'All' ? newsItem.category === category : true) &&
+            (source ? newsItem.source === source : true)
+        )
+        , [category, news, source]);
 
     if (loading) return <div>Loading...</div>
 

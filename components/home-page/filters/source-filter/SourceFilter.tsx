@@ -1,8 +1,9 @@
 import { useTranslations } from "next-intl"
-import { AutoComplete, Typography } from "antd"
+import { AutoComplete } from "antd"
 import { DefaultOptionType } from "antd/es/select";
 import { useAppDispatch, useAppSelector, setFeedSource, setFiltersSource, } from "@/store"
 import { removeDuplicates } from "@/utils";
+import FiltersWrapper from "../filters-wrapper";
 
 const SourceFilter = () => {
     const dispatch = useAppDispatch();
@@ -17,11 +18,7 @@ const SourceFilter = () => {
     }))
 
     return (
-        <div className="pt-6 pb-2 flex flex-col items-start gap-4">
-            <Typography.Text className="!text-lg !font-normal">
-                {texts("source")}
-            </Typography.Text>
-
+        <FiltersWrapper title={texts("source")}>
             <AutoComplete
                 className="w-52"
                 value={selectedTab === 'All News' ? filterSource : feedSource}
@@ -42,7 +39,7 @@ const SourceFilter = () => {
                         dispatch(setFeedSource(''))
                 }
             />
-        </div>
+        </FiltersWrapper>
     )
 }
 

@@ -1,21 +1,18 @@
 import dayjs from "dayjs";
 import enUS from 'antd-mobile/es/locales/en-US'
 import { useTranslations } from "next-intl"
-import { Button, DatePicker, Typography } from "antd"
+import { Button, DatePicker } from "antd"
 import { CalendarPicker, ConfigProvider } from "antd-mobile";
 import { useAppDispatch, useAppSelector, setFiltersDate, setOpenDatePicker } from "@/store"
 import { getArray, isDesktop, isMobile } from "@/utils";
+import FiltersWrapper from "../filters-wrapper";
 
 const DateFilter = () => {
     const dispatch = useAppDispatch();
     const texts = useTranslations('filters')
 
     return (
-        <div className="pt-6 pb-2 flex flex-col items-start gap-4">
-            <Typography.Text className="!text-lg !font-normal">
-                {texts("date")}
-            </Typography.Text>
-
+        <FiltersWrapper title={texts("date")}>
             {
                 isDesktop() &&
                 <DatePicker.RangePicker
@@ -37,7 +34,7 @@ const DateFilter = () => {
                 isMobile() &&
                 <MobileDatePicker />
             }
-        </div>
+        </FiltersWrapper>
     )
 }
 

@@ -1,23 +1,19 @@
 import { useMemo } from "react"
 
 import { useTranslations } from "next-intl"
-import { Typography } from "antd"
 import { useAppDispatch, useAppSelector, setFiltersCategory, setFeedCategory } from "@/store";
 import { getArray } from "@/utils"
 import { INewsCategory } from "@/types";
+import FiltersWrapper from "../filters-wrapper";
 import classnames from "classnames";
 
 const CategoryFilter = () => {
     const texts = useTranslations("filters")
 
     return (
-        <div className="pt-6 pb-2 flex flex-col items-start gap-4">
-            <Typography.Text className="!text-lg !font-normal">
-                {texts("category")}
-            </Typography.Text>
-
+        <FiltersWrapper title={texts("category")}>
             <Tags items={getArray(texts("categoryItems"))} />
-        </div>
+        </FiltersWrapper>
     )
 }
 

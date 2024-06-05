@@ -111,7 +111,6 @@ interface Props {
 
 const Component:React.FC<Props> = ({foo, arr}) => {
     const x = ()=> { };
-    const y = useMemo(() => /* computations */, [])
 
     const ref = useRef(null);
     const { value } = useContext(context);
@@ -121,6 +120,8 @@ const Component:React.FC<Props> = ({foo, arr}) => {
     const [state2, dispatchLocal] = useReducer(reducer, initialState);
 
     const { ... } = useSelector(selector);
+
+    const y = useMemo(() => /* computations */, [])
 
     useEffect(() => /* side effects */, []);
 

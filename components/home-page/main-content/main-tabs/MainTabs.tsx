@@ -9,20 +9,18 @@ import { getArray } from '@/utils'
 import NewsList from '../news-list'
 import Search from './search'
 
-const tabComponent = [<NewsList key='all-news-list' />, <NewsList key='feed-news-list' />]
-
-
 const MainTabs = () => {
     const dispatch = useAppDispatch()
-    const texts = useTranslations('mainContent')
     const { date } = useAppSelector(state => state.filters)
     const { searchText } = useAppSelector(state => state.news)
+    const texts = useTranslations('mainContent')
 
+    const tabTexts = getArray(texts('tabs'));
     const tabItems: TabsProps['items'] =
-        getArray(texts('tabs')).map((tab, index) => ({
+        tabTexts.map((tab, index) => ({
             key: tab,
             label: tab,
-            children: tabComponent[index]
+            children: <NewsList />
         }))
 
     const getData = () => {
@@ -40,7 +38,7 @@ const MainTabs = () => {
             onChange={(key) => {
                 getData()
                 dispatch(setSelectedTab(
-                    key === 'All News' || key === 'Alle Nachrichten' ? 'All News' : 'My Feed'
+                    key === tabTexts[0] ? 'All News' : 'My Feed'
                 ))
             }}
             tabBarExtraContent={<Search />} />

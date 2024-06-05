@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl"
 import { DatePicker, Typography } from "antd"
 import { useAppDispatch } from "@/store/hooks"
 import { setFiltersDate } from "@/store/slices/filters/filters.slice";
+import { getArray } from "@/utils/utils";
 
 const DateFilter = () => {
     const dispatch = useAppDispatch();
@@ -15,10 +16,11 @@ const DateFilter = () => {
             </Typography.Text>
 
             <DatePicker.RangePicker
-                onChange={(dates, dateStrings) => {
+                placeholder={getArray(texts('datePlaceholder')) as [string, string]}
+                onChange={(dates, [start, end]) => {
                     dispatch(setFiltersDate({
-                        start: dateStrings[0],
-                        end: dateStrings[1]
+                        start,
+                        end
                     }))
                 }}
                 disabledDate={(date) =>

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
 import { Inter } from "next/font/google";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { NextIntlClientProvider } from 'next-intl';
-
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { getMessages } from 'next-intl/server';
+
 import StoreProvider from "@/app/StoreProvider";
 import AppLayout from "@/components/layout/AppLayout";
 
@@ -26,6 +26,7 @@ export default async function RootLayout({
   children,
   params: { locale }
 }: Readonly<Props>) {
+
   const messages = await getMessages();
 
   return (

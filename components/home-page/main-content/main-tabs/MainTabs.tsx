@@ -8,8 +8,8 @@ import { Tabs, TabsProps } from 'antd'
 import { getArray } from '@/utils/utils'
 import { getNews } from '@/store/slices/news/news.api'
 import { setSelectedTab } from '@/store/slices/news/news.slice'
-import { INewsState } from '@/types/news/news.type'
 import NewsList from '../news-list/NewsList'
+import Search from '../search/Search'
 
 const tabComponent = [<NewsList key='all-news-list' />, <NewsList key='feed-news-list' />]
 
@@ -44,7 +44,8 @@ const MainTabs = () => {
                 dispatch(setSelectedTab(
                     key === 'All News' || key === 'Alle Nachrichten' ? 'All News' : 'My Feed'
                 ))
-            }} />
+            }}
+            tabBarExtraContent={<Search />} />
     )
 }
 

@@ -4,10 +4,13 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks"
 import { DefaultOptionType } from "antd/es/select";
 import { removeDuplicates } from "@/utils/utils";
 import { setFiltersSource } from "@/store/slices/filters/filters.slice";
+import { setFeedSource } from "@/store/slices/feed/feed.slice";
 
 const SourceFilter = () => {
     const dispatch = useAppDispatch();
-    const { news } = useAppSelector(state => state.news)
+    const { news, selectedTab } = useAppSelector(state => state.news)
+    const feedSource = useAppSelector(state => state.feed.source)
+    const filterSource = useAppSelector(state => state.filters.source)
     const texts = useTranslations('filters')
 
     const options: DefaultOptionType[] | undefined = news?.map(item => ({
@@ -23,14 +26,23 @@ const SourceFilter = () => {
 
             <AutoComplete
                 className="w-52"
+                value={selectedTab === 'All News' ? filterSource : feedSource}
                 options={removeDuplicates(options, 'value')}
-                onSelect={(value) => dispatch(setFiltersSource(value))}
+                onSelect={(value) =>
+                    selectedTab === 'All News' ?
+                        dispatch(setFiltersSource(value)) :
+                        dispatch(setFeedSource(value))
+                }
                 placeholder={texts("sourcePlaceholder")}
                 filterOption={(inputValue, option) =>
                     option!.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
                 }
                 allowClear
-                onClear={() => dispatch(setFiltersSource(''))}
+                onClear={() =>
+                    selectedTab === 'All News' ?
+                        dispatch(setFiltersSource('')) :
+                        dispatch(setFeedSource(''))
+                }
             />
         </div>
     )

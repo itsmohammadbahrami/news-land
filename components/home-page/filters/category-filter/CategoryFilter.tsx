@@ -1,15 +1,15 @@
-import { useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 import { useTranslations } from "next-intl"
-import { useAppDispatch } from "@/store/hooks";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { Typography } from "antd"
 import { getArray } from "@/utils/utils"
 import { INewsCategory } from "@/types/news/news.type";
 import { setFiltersCategory } from "@/store/slices/filters/filters.slice";
 import classnames from "classnames";
+import { setFeedCategory } from "@/store/slices/feed/feed.slice";
 
 const CategoryFilter = () => {
-    const dispatch = useAppDispatch()
     const texts = useTranslations("filters")
 
     return (
@@ -18,15 +18,20 @@ const CategoryFilter = () => {
                 {texts("category")}
             </Typography.Text>
 
-            <Tags
-                items={getArray(texts("categoryItems"))}
-                onClick={(item) => dispatch(setFiltersCategory(item))} />
+            <Tags items={getArray(texts("categoryItems"))} />
         </div>
     )
 }
 
-const Tags: React.FC<{ items: string[], onClick: (item: INewsCategory) => void }> = ({ items, onClick }) => {
-    const [selected, setSelected] = useState(items[0])
+const Tags: React.FC<{ items: string[] }> = ({ items }) => {
+    const dispatch = useAppDispatch()
+    const feedCategory = useAppSelector(state => state.feed.category)
+    const filterCategory = useAppSelector(state => state.filters.category)
+    const { selectedTab } = useAppSelector(state => state.news)
+
+    const selected = useMemo(() =>
+        selectedTab === 'All News' ? filterCategory : feedCategory
+        , [selectedTab, feedCategory, filterCategory])
 
     return (
         <div className='flex items-center flex-wrap gap-2'>
@@ -39,8 +44,9 @@ const Tags: React.FC<{ items: string[], onClick: (item: INewsCategory) => void }
                             'bg-blue-500 text-white': selected === item
                         })}
                         onClick={() => {
-                            setSelected(item)
-                            onClick(item as INewsCategory)
+                            selectedTab === 'All News' ?
+                                dispatch(setFiltersCategory(item as INewsCategory)) :
+                                dispatch(setFeedCategory(item as INewsCategory))
                         }}
                     >
                         {item}

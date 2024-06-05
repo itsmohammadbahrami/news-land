@@ -14,4 +14,5 @@ export interface INewsState {
     loading?: boolean;
     news?: INews[];
     searchText?: string;
+    selectedTab: 'All News' | 'My Feed'
 }

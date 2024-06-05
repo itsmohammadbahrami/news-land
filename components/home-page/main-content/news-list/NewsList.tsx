@@ -6,16 +6,23 @@ import { useAppSelector } from "@/store/hooks"
 import NewsItem from "./news-item/NewsItem"
 
 const NewsList = () => {
-    const { loading, news } = useAppSelector(state => state.news)
-    const { category, source } = useAppSelector(state => state.filters)
+    const { loading, news, selectedTab } = useAppSelector(state => state.news)
+    const filters = useAppSelector(state => state.filters)
+    const feed = useAppSelector(state => state.feed)
     const texts = useTranslations("newsList")
+
+    const [category, source] = useMemo(() =>
+        selectedTab === 'All News' ?
+            [filters.category, filters.source] :
+            [feed.category, feed.source]
+        , [selectedTab, filters, feed])
 
     const filteredNews = useMemo(() =>
         news?.filter(newsItem =>
             (category !== 'All' ? newsItem.category === category : true) &&
             (source ? newsItem.source === source : true)
         )
-        , [category, news, source]);
+        , [news, category, source]);
 
     if (loading) return <Typography.Text>{texts("loading")}</Typography.Text>
 

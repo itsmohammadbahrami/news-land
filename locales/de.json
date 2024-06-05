@@ -14,6 +14,7 @@
    },
    "filters": {
       "title": "Filter",
+      "customizeFeed": "Feed anpassen",
       "category": "Kategorie",
       "categoryItems": "['All','News.org','The Guardian','New York Times']",
       "date": "Datum",

@@ -6,7 +6,8 @@ import { getNews } from './news.api'
 const initialState: INewsState = {
     loading: false,
     news: undefined,
-    searchText: undefined
+    searchText: undefined,
+    selectedTab: 'All News'
 }
 
 const newsSlice = createSlice({
@@ -15,6 +16,9 @@ const newsSlice = createSlice({
     reducers: {
         setSearchText: (state, action: PayloadAction<string>) => {
             state.searchText = action.payload
+        },
+        setSelectedTab: (state, action: PayloadAction<INewsState['selectedTab']>) => {
+            state.selectedTab = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -31,5 +35,5 @@ const newsSlice = createSlice({
     }
 })
 
-export const { setSearchText } = newsSlice.actions
+export const { setSearchText, setSelectedTab } = newsSlice.actions
 export default newsSlice.reducer

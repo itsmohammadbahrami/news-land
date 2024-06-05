@@ -9,7 +9,7 @@ const Search = () => {
 
     return (
         <Input.Search
-            // className='!w-72'
+            className='!w-auto max-md:!w-40'
             placeholder={texts("inputPlaceholder")}
             allowClear
             onSearch={(searchText, e, info) =>

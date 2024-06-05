@@ -8,11 +8,16 @@
    "mainContent": {
       "tabs": "['Alle Nachrichten', 'Mein Feed']"
    },
+   "newsList": {
+      "loading": "Laden ...",
+      "notFound": "Keine Ergebnisse gefunden"
+   },
    "filters": {
       "title": "Filter",
       "category": "Kategorie",
       "categoryItems": "['All','News.org','The Guardian','New York Times']",
       "date": "Datum",
+      "datePlaceholder": "['Startdatum','Enddatum']",
       "source": "Quelle",
       "sourcePlaceholder": "Quellentext eingeben"
    }

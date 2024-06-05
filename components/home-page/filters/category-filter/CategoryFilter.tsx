@@ -35,7 +35,7 @@ const Tags: React.FC<{ items: string[], onClick: (item: INewsCategory) => void }
                     <span
                         key={item}
                         className={classnames(
-                            "text-xs font-normal bg-[#0000000D] px-3 py-2 rounded-lg cursor-pointer", {
+                            "text-xs font-normal bg-[#0000000D] px-3 py-2 rounded-lg cursor-pointer transition-colors", {
                             'bg-blue-500 text-white': selected === item
                         })}
                         onClick={() => {

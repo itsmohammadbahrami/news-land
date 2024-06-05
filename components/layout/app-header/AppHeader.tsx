@@ -1,5 +1,5 @@
 import Logo from '@/assets/icons/logo.svg'
-import AppLanguage from './app-language/AppLanguage'
+import AppLanguage from './app-language'
 
 const AppHeader = () => {
   return (

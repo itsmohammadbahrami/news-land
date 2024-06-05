@@ -1,15 +1,16 @@
 'use client'
 
-import { IReactFC } from '@/types'
 import { ConfigProvider, Layout, theme } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
-import AppHeader from './app-header/AppHeader'
+import { IReactFC } from '@/types'
+import AppHeader from './app-header'
 
 const AppLayout: React.FC<IReactFC> = ({ children }) => {
   return (
-    <ConfigProvider theme={{
-      algorithm: theme.defaultAlgorithm
-    }}>
+    <ConfigProvider
+      theme={{
+        algorithm: theme.defaultAlgorithm
+      }}>
       <Layout className='overflow-hidden'>
         <Header className='flex items-center gap-2 !bg-transparent border-b-2 justify-between max-md:px-2'>
           <AppHeader />

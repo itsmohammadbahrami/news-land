@@ -6,7 +6,7 @@ import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { getMessages } from 'next-intl/server';
 
 import StoreProvider from "@/app/StoreProvider";
-import AppLayout from "@/components/layout/AppLayout";
+import AppLayout from "@/components/layout";
 
 import "@/app/globals.css";
 

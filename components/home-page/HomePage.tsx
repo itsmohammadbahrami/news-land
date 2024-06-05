@@ -1,8 +1,8 @@
 'use client'
 
 import { isDesktop } from "@/utils"
-import Filters from "./filters/Filters"
-import MainContent from "./main-content/MainContent"
+import Filters from "./filters"
+import MainContent from "./main-content"
 
 const HomePage = () => {
     return (

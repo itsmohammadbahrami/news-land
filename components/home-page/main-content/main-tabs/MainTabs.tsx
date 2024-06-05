@@ -6,8 +6,8 @@ import { useTranslations } from 'next-intl'
 import { Tabs, TabsProps } from 'antd'
 import { useAppDispatch, useAppSelector, getNews, setSelectedTab } from '@/store'
 import { getArray } from '@/utils'
-import NewsList from '../news-list/NewsList'
-import Search from '../search/Search'
+import NewsList from '../news-list'
+import Search from './search/Search'
 
 const tabComponent = [<NewsList key='all-news-list' />, <NewsList key='feed-news-list' />]
 

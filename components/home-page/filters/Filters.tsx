@@ -6,7 +6,6 @@ import { useAppSelector } from "@/store/hooks"
 import CategoryFilter from "./category-filter/CategoryFilter"
 import DateFilter from "./date-filter/DateFilter"
 import SourceFilter from "./source-filter/SourceFilter"
-import SaveFeed from "./save-feed/SaveFeed"
 
 const Filters = () => {
     const { selectedTab } = useAppSelector(state => state.news)
@@ -23,10 +22,6 @@ const Filters = () => {
                 <DateFilter />
             }
             <SourceFilter />
-            {
-                selectedTab === 'My Feed' &&
-                <SaveFeed />
-            }
         </section>
     )
 }

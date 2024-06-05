@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import { Typography } from "antd"
 import { getArray } from "@/utils/utils"
-import { INewsCategory } from "@/types/news/news.type";
+import { INewsCategory } from "@/types";
 import { setFiltersCategory } from "@/store/slices/filters/filters.slice";
 import classnames from "classnames";
 import { setFeedCategory } from "@/store/slices/feed/feed.slice";

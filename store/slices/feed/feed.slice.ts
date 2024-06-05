@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-import { INewsCategory } from '@/types/news/news.type'
-import { IFeedState } from '@/types/feed/feed.type'
+import { INewsCategory, IFeedState } from '@/types'
 
 const initialState: IFeedState = {
     category: 'All',

@@ -1,7 +1,7 @@
 import dayjs from "dayjs"
 import { Image, Tag, Typography } from "antd"
 
-import { INews } from "@/types/news/news.type"
+import { INews } from "@/types"
 
 interface Props {
     news: INews

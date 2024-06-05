@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-import { INewsState } from '@/types/news/news.type'
+import { INewsState } from '@/types'
 import { getNews } from './news.api'
 
 const initialState: INewsState = {

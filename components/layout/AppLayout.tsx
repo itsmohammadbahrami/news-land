@@ -1,6 +1,6 @@
 'use client'
 
-import { IReactFC } from '@/types/app/app.type'
+import { IReactFC } from '@/types'
 import { ConfigProvider, Layout, theme } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
 import AppHeader from './app-header/AppHeader'

@@ -1,4 +1,4 @@
-import { INews } from "@/types/news/news.type";
+import { INews } from "@/types";
 
 export const getArray = (json: string): string[] =>
     JSON.parse(json.replace(/'/g, '"'));

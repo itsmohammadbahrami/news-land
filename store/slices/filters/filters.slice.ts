@@ -1,7 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
-import { IFiltersState } from '@/types/filters/filters.type'
-import { INewsCategory } from '@/types/news/news.type'
+import { IFiltersState, INewsCategory } from '@/types'
 
 const initialState: IFiltersState = {
     category: 'All',

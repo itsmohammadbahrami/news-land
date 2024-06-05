@@ -7,7 +7,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
 import { Spin } from 'antd'
 import { makeStore, AppStore } from '@/store/store'
-import { IReactFC } from '@/types/app/app.type'
+import { IReactFC } from '@/types'
 
 export default function StoreProvider({
     children

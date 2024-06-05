@@ -2,7 +2,7 @@ import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import { axiosGuardianAPI, axiosNYTimesAPI, axiosNewsAPI } from "@/services/apis";
-import { convertGuardianApiData, convertNewsApiData, convertTimesApiData } from "@/utils/utils";
+import { convertGuardianApiData, convertNewsApiData, convertTimesApiData } from "@/utils";
 import { INews, IFiltersState } from "@/types";
 
 export const getNews = createAsyncThunk(

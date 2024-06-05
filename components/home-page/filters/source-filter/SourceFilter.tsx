@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl"
 import { AutoComplete, Typography } from "antd"
 import { DefaultOptionType } from "antd/es/select";
 import { useAppDispatch, useAppSelector, setFeedSource, setFiltersSource, } from "@/store"
-import { removeDuplicates } from "@/utils/utils";
+import { removeDuplicates } from "@/utils";
 
 const SourceFilter = () => {
     const dispatch = useAppDispatch();

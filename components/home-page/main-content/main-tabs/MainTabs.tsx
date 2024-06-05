@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Tabs, TabsProps } from 'antd'
 import { useAppDispatch, useAppSelector, getNews, setSelectedTab } from '@/store'
-import { getArray } from '@/utils/utils'
+import { getArray } from '@/utils'
 import NewsList from '../news-list/NewsList'
 import Search from '../search/Search'
 

@@ -3,7 +3,7 @@
 import { Typography } from "antd"
 import { useTranslations } from "next-intl"
 import { useAppSelector } from "@/store"
-import { isDesktop } from "@/utils/utils"
+import { isDesktop } from "@/utils"
 import CategoryFilter from "./category-filter/CategoryFilter"
 import DateFilter from "./date-filter/DateFilter"
 import SourceFilter from "./source-filter/SourceFilter"

@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 import { Button, DatePicker, Typography } from "antd"
 import { CalendarPicker, ConfigProvider } from "antd-mobile";
 import { useAppDispatch, useAppSelector, setFiltersDate, setOpenDatePicker } from "@/store"
-import { getArray, isDesktop, isMobile } from "@/utils/utils";
+import { getArray, isDesktop, isMobile } from "@/utils";
 
 const DateFilter = () => {
     const dispatch = useAppDispatch();

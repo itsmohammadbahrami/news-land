@@ -1,4 +1,4 @@
-import { isMobile } from '@/utils/utils'
+import { isMobile } from '@/utils'
 import MainTabs from './main-tabs/MainTabs'
 import FiltersButton from './filters-button/FiltersButton'
 

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { removeEmptyItems } from '@/utils/utils';
+import { removeEmptyItems } from '@/utils';
 
 const createAxios = (baseURL?: string) =>
     axios.create({

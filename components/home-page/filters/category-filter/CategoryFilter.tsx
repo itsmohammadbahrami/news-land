@@ -3,7 +3,7 @@ import { useMemo } from "react"
 import { useTranslations } from "next-intl"
 import { Typography } from "antd"
 import { useAppDispatch, useAppSelector, setFiltersCategory, setFeedCategory } from "@/store";
-import { getArray } from "@/utils/utils"
+import { getArray } from "@/utils"
 import { INewsCategory } from "@/types";
 import classnames from "classnames";
 

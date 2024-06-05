@@ -1,6 +1,6 @@
 'use client'
 
-import { isDesktop } from "@/utils/utils"
+import { isDesktop } from "@/utils"
 import Filters from "./filters/Filters"
 import MainContent from "./main-content/MainContent"
 

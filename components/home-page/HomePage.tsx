@@ -1,3 +1,6 @@
+'use client'
+
+import { isDesktop } from "@/utils/utils"
 import Filters from "./filters/Filters"
 import MainContent from "./main-content/MainContent"
 
@@ -7,9 +10,12 @@ const HomePage = () => {
             <main className='flex-1'>
                 <MainContent />
             </main>
-            <aside className='w-[20rem]'>
-                <Filters />
-            </aside>
+            {
+                isDesktop() &&
+                <aside className='w-[20rem]'>
+                    <Filters />
+                </aside>
+            }
         </section>
     )
 }

@@ -55,3 +55,7 @@ export const removeDuplicates = (arr: any[] | undefined, key: string) => {
         return !duplicate;
     });
 };
+
+export const isDesktop = (): boolean => window.innerWidth > 768;
+
+export const isMobile = (): boolean => window.innerWidth <= 768;

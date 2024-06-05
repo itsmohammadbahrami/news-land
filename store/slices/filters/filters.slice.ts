@@ -6,7 +6,8 @@ import { INewsCategory } from '@/types/news/news.type'
 const initialState: IFiltersState = {
     category: 'All',
     date: undefined,
-    source: ''
+    source: '',
+    openDrawer: false
 }
 
 const filtersSlice = createSlice({
@@ -22,8 +23,16 @@ const filtersSlice = createSlice({
         setFiltersSource: (state, action: PayloadAction<string>) => {
             state.source = action.payload
         },
+        setOpenFiltersDrawer: (state, action: PayloadAction<boolean>) => {
+            state.openDrawer = action.payload
+        },
     }
 })
 
-export const { setFiltersCategory, setFiltersDate, setFiltersSource } = filtersSlice.actions
+export const {
+    setFiltersCategory,
+    setFiltersDate,
+    setFiltersSource,
+    setOpenFiltersDrawer
+} = filtersSlice.actions
 export default filtersSlice.reducer

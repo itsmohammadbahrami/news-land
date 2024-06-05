@@ -18,7 +18,7 @@ const MainTabs = () => {
     const dispatch = useAppDispatch()
     const texts = useTranslations('mainContent')
     const { date } = useAppSelector(state => state.filters)
-    const { searchText, selectedTab } = useAppSelector(state => state.news)
+    const { searchText } = useAppSelector(state => state.news)
 
     const tabItems: TabsProps['items'] =
         getArray(texts('tabs')).map((tab, index) => ({
@@ -37,6 +37,7 @@ const MainTabs = () => {
 
     return (
         <Tabs
+            className='w-full'
             items={tabItems}
             onChange={(key) => {
                 getData()

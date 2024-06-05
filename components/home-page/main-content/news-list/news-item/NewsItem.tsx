@@ -13,13 +13,13 @@ const NewsItem: React.FC<Props> = ({ news }) => {
             className="flex flex-wrap gap-5 pe-4 py-4 cursor-pointer hover:shadow-xl hover:rounded-lg transition-shadow"
             onClick={() => window.open(news.newsUrl, '_blank')}
         >
-            <div className="w-[20rem]">
+            <div className="w-[20rem] max-md:w-full">
                 <Image
-                    className="rounded-lg aspect-video object-cover min-w-[13rem]"
+                    className="rounded-lg aspect-video object-cover h-[13rem] min-w-[13rem] max-md:h-auto max-md:max-w-[auto] "
                     src={news.imageUrl}
                     alt={news.category}
                     preview={false}
-                    height='13rem'
+                // height='13rem'
                 />
             </div>
             <div className="flex flex-col flex-1 justify-between gap-4">

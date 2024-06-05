@@ -29,7 +29,7 @@ const NewsList = () => {
     if (!filteredNews?.length) return <Typography.Text type="secondary">{texts('notFound')}</Typography.Text>
 
     return (
-        <section className="flex flex-col divide-y-[1px] divide-gray-300 pe-10 overflow-y-auto h-[calc(100vh-9.25rem)]">
+        <section className="flex flex-col divide-y-[1px] divide-gray-300 pe-6 overflow-y-auto overflow-x-hidden h-[calc(100vh-9.25rem)] max-md:!pb-20 w-full">
             {
                 filteredNews &&
                 filteredNews.length > 0 &&

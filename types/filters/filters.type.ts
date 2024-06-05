@@ -7,4 +7,5 @@ export interface IFiltersState {
         end: string;
     },
     source: string;
+    openDrawer: boolean;
 }

@@ -3,11 +3,9 @@
 import { useEffect } from 'react'
 
 import { useTranslations } from 'next-intl'
-import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { Tabs, TabsProps } from 'antd'
+import { useAppDispatch, useAppSelector, getNews, setSelectedTab } from '@/store'
 import { getArray } from '@/utils/utils'
-import { getNews } from '@/store/slices/news/news.api'
-import { setSelectedTab } from '@/store/slices/news/news.slice'
 import NewsList from '../news-list/NewsList'
 import Search from '../search/Search'
 

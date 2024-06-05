@@ -1,7 +1,6 @@
-import { useAppDispatch } from '@/store/hooks'
 import { useTranslations } from 'next-intl'
 import { Input } from 'antd'
-import { setSearchText } from '@/store/slices/news/news.slice'
+import { useAppDispatch, setSearchText } from '@/store'
 
 const Search = () => {
     const dispatch = useAppDispatch()

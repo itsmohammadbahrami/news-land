@@ -3,8 +3,7 @@ import enUS from 'antd-mobile/es/locales/en-US'
 import { useTranslations } from "next-intl"
 import { Button, DatePicker, Typography } from "antd"
 import { CalendarPicker, ConfigProvider } from "antd-mobile";
-import { useAppDispatch, useAppSelector } from "@/store/hooks"
-import { setFiltersDate, setOpenDatePicker } from "@/store/slices/filters/filters.slice";
+import { useAppDispatch, useAppSelector, setFiltersDate, setOpenDatePicker } from "@/store"
 import { getArray, isDesktop, isMobile } from "@/utils/utils";
 
 const DateFilter = () => {

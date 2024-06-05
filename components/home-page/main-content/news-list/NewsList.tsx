@@ -2,7 +2,7 @@ import { useMemo } from "react"
 
 import { useTranslations } from "next-intl"
 import { Typography } from "antd"
-import { useAppSelector } from "@/store/hooks"
+import { useAppSelector } from "@/store"
 import NewsItem from "./news-item/NewsItem"
 
 const NewsList = () => {

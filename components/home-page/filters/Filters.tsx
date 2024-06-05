@@ -2,7 +2,7 @@
 
 import { Typography } from "antd"
 import { useTranslations } from "next-intl"
-import { useAppSelector } from "@/store/hooks"
+import { useAppSelector } from "@/store"
 import { isDesktop } from "@/utils/utils"
 import CategoryFilter from "./category-filter/CategoryFilter"
 import DateFilter from "./date-filter/DateFilter"

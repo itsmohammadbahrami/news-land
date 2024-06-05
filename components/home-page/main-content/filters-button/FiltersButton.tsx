@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl"
 import { Button, Drawer } from "antd"
-import { useAppDispatch, useAppSelector } from "@/store/hooks"
-import { setOpenFiltersDrawer } from "@/store/slices/filters/filters.slice"
+import { useAppDispatch, useAppSelector, setOpenFiltersDrawer } from "@/store"
 import Filters from "@/components/home-page/filters/Filters"
 
 const FiltersButton = () => {

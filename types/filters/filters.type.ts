@@ -8,4 +8,5 @@ export interface IFiltersState {
     },
     source: string;
     openDrawer: boolean;
+    openDatePicker: boolean;
 }

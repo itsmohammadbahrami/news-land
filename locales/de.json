@@ -20,6 +20,7 @@
       "date": "Datum",
       "datePlaceholder": "['Startdatum','Enddatum']",
       "source": "Quelle",
-      "sourcePlaceholder": "Quellentext eingeben"
+      "sourcePlaceholder": "Quellentext eingeben",
+      "selectDate": "Datum auswählen"
    }
 }

@@ -1,9 +1,13 @@
+import { useRef } from "react";
+
 import dayjs from "dayjs";
+import enUS from 'antd-mobile/es/locales/en-US'
 import { useTranslations } from "next-intl"
-import { DatePicker, Typography } from "antd"
-import { useAppDispatch } from "@/store/hooks"
-import { setFiltersDate } from "@/store/slices/filters/filters.slice";
-import { getArray } from "@/utils/utils";
+import { Button, DatePicker, Typography } from "antd"
+import { CalendarPicker, CalendarPickerRef, ConfigProvider } from "antd-mobile";
+import { useAppDispatch, useAppSelector } from "@/store/hooks"
+import { setFiltersDate, setOpenDatePicker } from "@/store/slices/filters/filters.slice";
+import { getArray, isDesktop, isMobile } from "@/utils/utils";
 
 const DateFilter = () => {
     const dispatch = useAppDispatch();
@@ -15,20 +19,74 @@ const DateFilter = () => {
                 {texts("date")}
             </Typography.Text>
 
-            <DatePicker.RangePicker
-                placeholder={getArray(texts('datePlaceholder')) as [string, string]}
-                onChange={(dates, [start, end]) => {
-                    dispatch(setFiltersDate({
-                        start,
-                        end
-                    }))
-                }}
-                disabledDate={(date) =>
-                    date > dayjs().endOf('day')
-                }
-                inputReadOnly
-            />
+            {
+                isDesktop() &&
+                <DatePicker.RangePicker
+                    placeholder={getArray(texts('datePlaceholder')) as [string, string]}
+                    onChange={(dates, [start, end]) => {
+                        dispatch(setFiltersDate({
+                            start,
+                            end
+                        }))
+                    }}
+                    disabledDate={(date) =>
+                        date > dayjs().endOf('day')
+                    }
+                    inputReadOnly
+                />
+            }
+
+            {
+                isMobile() &&
+                <MobileDatePicker />
+            }
         </div>
+    )
+}
+
+const MobileDatePicker: React.FC = () => {
+    const dispatch = useAppDispatch();
+    const { openDatePicker, date } = useAppSelector(state => state.filters)
+    const texts = useTranslations('filters')
+    const dateRef = useRef<CalendarPickerRef>(null)
+
+    return (
+        <>
+            <Button
+                type="primary"
+                onClick={() => {
+                    dateRef.current?.jumpToToday()
+                    dispatch(setOpenDatePicker(true))
+                }}>
+                {
+                    date && date.start && date.end ?
+                        `${date.start} to ${date.end}` :
+                        texts("selectDate")
+                }
+            </Button>
+            <ConfigProvider locale={enUS}>
+                <CalendarPicker
+                    ref={dateRef}
+                    visible={openDatePicker}
+                    selectionMode="range"
+                    onConfirm={(value) => {
+                        if (!value) return
+
+                        const [start, end] = value;
+                        dispatch(setFiltersDate({
+                            start: dayjs(start).format('YYYY-MM-DD'),
+                            end: dayjs(end).format('YYYY-MM-DD')
+                        }))
+                    }}
+                    onClose={() => dispatch(setOpenDatePicker(false))}
+                    shouldDisableDate={(date) =>
+                        dayjs(date).startOf('day') > dayjs().endOf('day')
+                    }
+                    min={dayjs().startOf('year').toDate()}
+                    max={dayjs().endOf('month').toDate()}
+                />
+            </ConfigProvider>
+        </>
     )
 }
 

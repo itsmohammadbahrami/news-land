@@ -47,3 +47,7 @@ body {
 .ant-drawer-close {
    display: none !important;
 }
+
+.adm-calendar-picker-popup {
+   z-index: 10000 !important;
+}

@@ -7,7 +7,8 @@ const initialState: IFiltersState = {
     category: 'All',
     date: undefined,
     source: '',
-    openDrawer: false
+    openDrawer: false,
+    openDatePicker: false
 }
 
 const filtersSlice = createSlice({
@@ -26,6 +27,9 @@ const filtersSlice = createSlice({
         setOpenFiltersDrawer: (state, action: PayloadAction<boolean>) => {
             state.openDrawer = action.payload
         },
+        setOpenDatePicker: (state, action: PayloadAction<boolean>) => {
+            state.openDatePicker = action.payload
+        },
     }
 })
 
@@ -33,6 +37,7 @@ export const {
     setFiltersCategory,
     setFiltersDate,
     setFiltersSource,
-    setOpenFiltersDrawer
+    setOpenFiltersDrawer,
+    setOpenDatePicker
 } = filtersSlice.actions
 export default filtersSlice.reducer

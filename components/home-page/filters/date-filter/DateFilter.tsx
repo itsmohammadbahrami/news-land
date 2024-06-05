@@ -1,10 +1,8 @@
-import { useRef } from "react";
-
 import dayjs from "dayjs";
 import enUS from 'antd-mobile/es/locales/en-US'
 import { useTranslations } from "next-intl"
 import { Button, DatePicker, Typography } from "antd"
-import { CalendarPicker, CalendarPickerRef, ConfigProvider } from "antd-mobile";
+import { CalendarPicker, ConfigProvider } from "antd-mobile";
 import { useAppDispatch, useAppSelector } from "@/store/hooks"
 import { setFiltersDate, setOpenDatePicker } from "@/store/slices/filters/filters.slice";
 import { getArray, isDesktop, isMobile } from "@/utils/utils";
@@ -48,25 +46,26 @@ const MobileDatePicker: React.FC = () => {
     const dispatch = useAppDispatch();
     const { openDatePicker, date } = useAppSelector(state => state.filters)
     const texts = useTranslations('filters')
-    const dateRef = useRef<CalendarPickerRef>(null)
 
     return (
         <>
             <Button
                 type="primary"
                 onClick={() => {
-                    dateRef.current?.jumpToToday()
                     dispatch(setOpenDatePicker(true))
                 }}>
                 {
                     date && date.start && date.end ?
-                        `${date.start} to ${date.end}` :
+                        texts("dateButton", {
+                            start: date.start,
+                            end: date.end
+                        }) :
                         texts("selectDate")
                 }
             </Button>
             <ConfigProvider locale={enUS}>
                 <CalendarPicker
-                    ref={dateRef}
+                    title={texts("selectDate")}
                     visible={openDatePicker}
                     selectionMode="range"
                     onConfirm={(value) => {

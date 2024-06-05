@@ -21,6 +21,7 @@
       "datePlaceholder": "['Start date','End date']",
       "source": "Source",
       "sourcePlaceholder": "input source text",
-      "selectDate": "Select date"
+      "selectDate": "Select date",
+      "dateButton": "{start} to {end}"
    }
 }

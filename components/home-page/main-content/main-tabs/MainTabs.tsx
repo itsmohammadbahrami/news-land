@@ -40,7 +40,9 @@ const MainTabs = () => {
             items={tabItems}
             onChange={(key) => {
                 getData()
-                dispatch(setSelectedTab(key as INewsState['selectedTab']))
+                dispatch(setSelectedTab(
+                    key === 'All News' || key === 'Alle Nachrichten' ? 'All News' : 'My Feed'
+                ))
             }} />
     )
 }

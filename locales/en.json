@@ -20,6 +20,8 @@
       "date": "Date",
       "datePlaceholder": "['Start date','End date']",
       "source": "Source",
-      "sourcePlaceholder": "input source text"
+      "sourcePlaceholder": "input source text",
+      "save": "Save",
+      "saveSuccess": "Feed settings successfully saved"
    }
 }

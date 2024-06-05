@@ -5,7 +5,8 @@ import { IFeedState } from '@/types/feed/feed.type'
 
 const initialState: IFeedState = {
     category: 'All',
-    source: ''
+    source: '',
+    remember: false,
 }
 
 const filtersSlice = createSlice({
@@ -18,8 +19,11 @@ const filtersSlice = createSlice({
         setFeedSource: (state, action: PayloadAction<string>) => {
             state.source = action.payload
         },
+        setFeedRemember: (state, action: PayloadAction<boolean>) => {
+            state.remember = action.payload
+        },
     }
 })
 
-export const { setFeedCategory, setFeedSource } = filtersSlice.actions
+export const { setFeedCategory, setFeedSource, setFeedRemember } = filtersSlice.actions
 export default filtersSlice.reducer

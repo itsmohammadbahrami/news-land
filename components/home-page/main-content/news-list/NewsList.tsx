@@ -1,7 +1,7 @@
 import { useMemo } from "react"
 
 import { useTranslations } from "next-intl"
-import { Typography } from "antd"
+import { Spin, Typography } from "antd"
 import { useAppSelector } from "@/store"
 import NewsItem from "./news-item"
 
@@ -24,7 +24,7 @@ const NewsList = () => {
         )
         , [news, category, source]);
 
-    if (loading) return <Typography.Text>{texts("loading")}</Typography.Text>
+    if (loading) return <Spin size="large" className="absolute top-52 left-1/2" />
 
     if (!filteredNews?.length) return <Typography.Text type="secondary">{texts('notFound')}</Typography.Text>
 

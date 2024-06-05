@@ -1,6 +1,5 @@
 import dayjs from "dayjs"
 import { Image, Tag, Typography } from "antd"
-
 import { INews } from "@/types"
 
 interface Props {
@@ -19,7 +18,6 @@ const NewsItem: React.FC<Props> = ({ news }) => {
                     src={news.imageUrl}
                     alt={news.category}
                     preview={false}
-                // height='13rem'
                 />
             </div>
             <div className="flex flex-col flex-1 justify-between gap-4">

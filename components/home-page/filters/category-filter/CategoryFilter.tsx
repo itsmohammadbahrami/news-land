@@ -41,7 +41,7 @@ const Tags: React.FC<{ items: string[] }> = ({ items }) => {
                         key={item}
                         className={classnames(
                             "text-xs font-normal bg-[#0000000D] px-3 py-2 rounded-lg cursor-pointer transition-colors", {
-                            'bg-blue-500 text-white': selected === item
+                            'bg-blue-primary text-white': selected === item
                         })}
                         onClick={() => {
                             selectedTab === 'All News' ?

@@ -123,9 +123,9 @@ const Component:React.FC<Props> = ({foo, arr}) => {
 
     const y = useMemo(() => /* computations */, [])
 
-    useEffect(() => /* side effects */, []);
-
     const clickHandler = e => {}
+
+    useEffect(() => /* side effects */, []);
 
     return (
         <div onClick={clickHandler} foo={foo}>

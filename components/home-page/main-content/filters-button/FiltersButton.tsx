@@ -9,6 +9,8 @@ const FiltersButton = () => {
     const { openDrawer } = useAppSelector(state => state.filters)
     const texts = useTranslations('filters')
 
+    const title = texts(selectedTab === 'All News' ? "title" : "customizeFeed")
+
     return (
         <>
             <Button
@@ -16,11 +18,11 @@ const FiltersButton = () => {
                 type="primary"
                 onClick={() => dispatch(setOpenFiltersDrawer(true))}
             >
-                {texts(selectedTab === 'All News' ? "title" : "customizeFeed")}
+                {title}
             </Button>
 
             <Drawer
-                title={texts(selectedTab === 'All News' ? "title" : "customizeFeed")}
+                title={title}
                 height={selectedTab === 'All News' ? 'calc(100vh - 15rem)' : 'calc(100vh - 20rem)'}
                 styles={{
                     body: { padding: '0.5rem 1rem' },

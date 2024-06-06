@@ -2,7 +2,7 @@ import { useMemo } from "react"
 
 import { useTranslations } from "next-intl"
 import { useAppDispatch, useAppSelector, setFiltersCategory, setFeedCategory } from "@/store";
-import { getArray } from "@/utils"
+import { getArray, testIds } from "@/utils"
 import { INewsCategory } from "@/types";
 import FiltersWrapper from "../filters-wrapper";
 import classnames from "classnames";
@@ -11,7 +11,7 @@ const CategoryFilter = () => {
     const texts = useTranslations("filters")
 
     return (
-        <FiltersWrapper title={texts("category")}>
+        <FiltersWrapper title={texts("category")} testId={testIds.filters.category}>
             <Tags items={getArray(texts("categoryItems"))} />
         </FiltersWrapper>
     )
@@ -28,7 +28,9 @@ const Tags: React.FC<{ items: string[] }> = ({ items }) => {
         , [selectedTab, feedCategory, filterCategory])
 
     return (
-        <div className='flex items-center flex-wrap gap-2'>
+        <div
+            className='flex items-center flex-wrap gap-2'
+            data-testid={testIds.filters.categoryTags}>
             {
                 items.map((item) =>
                     <span

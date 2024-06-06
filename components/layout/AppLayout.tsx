@@ -3,6 +3,7 @@
 import { ConfigProvider, Layout, theme } from 'antd'
 import { Content, Header } from 'antd/es/layout/layout'
 import { IReactFC } from '@/types'
+import { testIds } from '@/utils'
 import AppHeader from './app-header'
 
 const AppLayout: React.FC<IReactFC> = ({ children }) => (
@@ -14,7 +15,9 @@ const AppLayout: React.FC<IReactFC> = ({ children }) => (
       }
     }}>
     <Layout className='overflow-hidden'>
-      <Header className='flex items-center gap-2 !bg-transparent border-b-2 justify-between max-md:px-2'>
+      <Header
+        className='flex items-center gap-2 !bg-transparent border-b-2 justify-between max-md:px-2'
+        data-testid={testIds.header.container}>
         <AppHeader />
       </Header>
       <Content>

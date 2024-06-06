@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl"
 import { Button, DatePicker } from "antd"
 import { CalendarPicker, ConfigProvider } from "antd-mobile";
 import { useAppDispatch, useAppSelector, setFiltersDate, setOpenDatePicker } from "@/store"
-import { getArray, isDesktop, isMobile } from "@/utils";
+import { getArray, isDesktop, isMobile, testIds } from "@/utils";
 import FiltersWrapper from "../filters-wrapper";
 
 const DateFilter = () => {
@@ -12,10 +12,11 @@ const DateFilter = () => {
     const texts = useTranslations('filters')
 
     return (
-        <FiltersWrapper title={texts("date")}>
+        <FiltersWrapper title={texts("date")} testId={testIds.filters.date}>
             {
                 isDesktop() &&
                 <DatePicker.RangePicker
+                    data-testid={testIds.filters.dateInput}
                     placeholder={getArray(texts('datePlaceholder')) as [string, string]}
                     onChange={(dates, [start, end]) => {
                         dispatch(setFiltersDate({
@@ -61,6 +62,7 @@ const MobileDatePicker: React.FC = () => {
             </Button>
             <ConfigProvider locale={enUS}>
                 <CalendarPicker
+                    data-testid={testIds.filters.dateInput}
                     title={texts("selectDate")}
                     visible={openDatePicker}
                     selectionMode="range"

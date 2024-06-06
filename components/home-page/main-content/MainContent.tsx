@@ -1,9 +1,11 @@
-import { isMobile } from '@/utils'
+import { isMobile, testIds } from '@/utils'
 import MainTabs from './main-tabs'
 import FiltersButton from './filters-button'
 
 const MainContent = () => (
-    <section className='flex flex-col items-center'>
+    <section
+        className='flex flex-col items-center'
+        data-testid={testIds.news.container}>
         <MainTabs />
         {
             isMobile() &&

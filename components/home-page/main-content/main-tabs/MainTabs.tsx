@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { Tabs, TabsProps } from 'antd'
 import { useAppDispatch, useAppSelector, getNews, setSelectedTab } from '@/store'
-import { getArray } from '@/utils'
+import { getArray, testIds } from '@/utils'
 import NewsList from '../news-list'
 import Search from './search'
 
@@ -34,6 +34,7 @@ const MainTabs = () => {
     return (
         <Tabs
             className='w-full'
+            data-testid={testIds.news.tabs}
             items={tabItems}
             onChange={(key) => {
                 getData()

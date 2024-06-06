@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl"
 import { AutoComplete } from "antd"
 import { DefaultOptionType } from "antd/es/select";
 import { useAppDispatch, useAppSelector, setFeedSource, setFiltersSource, } from "@/store"
-import { removeDuplicates } from "@/utils";
+import { removeDuplicates, testIds } from "@/utils";
 import FiltersWrapper from "../filters-wrapper";
 
 const SourceFilter = () => {
@@ -18,8 +18,9 @@ const SourceFilter = () => {
     }))
 
     return (
-        <FiltersWrapper title={texts("source")}>
+        <FiltersWrapper title={texts("source")} testId={testIds.filters.source}>
             <AutoComplete
+                data-testid={testIds.filters.sourceInput}
                 className="w-52"
                 value={selectedTab === 'All News' ? filterSource : feedSource}
                 options={removeDuplicates(options, 'value')}

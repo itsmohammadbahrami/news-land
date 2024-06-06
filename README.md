@@ -18,7 +18,7 @@ A simple news app
 
 -  **`dev`** Starts app in development mode.
 -  **`build`** Creates an optimized production build.
-   <br />Note: Use node version >= 16 to build the project.
+-  **`test:e2e`** Starts cypress test IDE (Note: Before this step, please run project using `npm run dev`).
 
 ## Naming Conventions
 

@@ -3,7 +3,7 @@
 import { Typography } from "antd"
 import { useTranslations } from "next-intl"
 import { useAppSelector } from "@/store"
-import { isDesktop } from "@/utils"
+import { isDesktop, testIds } from "@/utils"
 import CategoryFilter from "./category-filter"
 import DateFilter from "./date-filter"
 import SourceFilter from "./source-filter"
@@ -13,10 +13,14 @@ const Filters = () => {
     const texts = useTranslations("filters")
 
     return (
-        <section className="flex flex-col divide-y-[1px] divide-gray-200 gap-3 pt-[0.375rem]">
+        <section
+            className="flex flex-col divide-y-[1px] divide-gray-200 gap-3 pt-[0.375rem]"
+            data-testid={testIds.filters.container}>
             {
                 isDesktop() &&
-                <Typography.Text className="!text-xl !font-bold">
+                <Typography.Text
+                    className="!text-xl !font-bold"
+                    data-testid={testIds.filters.title}>
                     {texts(selectedTab === 'All News' ? "title" : "customizeFeed")}
                 </Typography.Text>
             }

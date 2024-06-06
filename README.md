@@ -20,6 +20,37 @@ A simple news app
 -  **`build`** Creates an optimized production build.
 -  **`test:e2e`** Starts cypress test IDE (Note: Before this step, please run project using `npm run dev`).
 
+## Docker Setup
+
+This project is a Next.js 14 application. Follow the instructions below to build and run the project using Docker.
+
+### Prerequisites
+
+-  [Docker](https://www.docker.com/get-started) installed on your machine
+-  Basic knowledge of Docker commands
+
+### 1. Clone the Repository
+
+First, clone this repository to your local machine:
+
+```bash
+git clone https://github.com/itsmohammadbahrami/news-land.git
+cd news-land
+```
+
+### 2. Build the Docker image
+
+```bash
+docker build -t news-land .
+
+```
+
+### 3. Run the Docker Container
+
+```bash
+docker run -p 3000:3000 news-land
+```
+
 ## Naming Conventions
 
 > Files with different types named this way: [fle_name].[type].[extension], e.g. `foo.test.js`, `foo.container.js`, `foo.reducer.js`, `foo.ac.js` (action creators), `foo.module.scss`.

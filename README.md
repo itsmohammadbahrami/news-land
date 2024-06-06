@@ -22,8 +22,6 @@ A simple news app
 
 ## Docker Setup
 
-This project is a Next.js 14 application. Follow the instructions below to build and run the project using Docker.
-
 ### Prerequisites
 
 -  [Docker](https://www.docker.com/get-started) installed on your machine
@@ -35,6 +33,11 @@ First, clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/itsmohammadbahrami/news-land.git
+```
+
+Then go to the project directory
+
+```bash
 cd news-land
 ```
 
@@ -50,6 +53,10 @@ docker build -t news-land .
 ```bash
 docker run -p 3000:3000 news-land
 ```
+
+### 3. Open browser and navigate to
+
+[Your Localhost](http://localhost:3000)
 
 ## Naming Conventions
 

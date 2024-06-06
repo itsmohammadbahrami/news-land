@@ -21,7 +21,10 @@ describe('Header elements', () => {
 });
 
 describe('Header functionality', () => {
-
+    beforeEach(() => {
+        cy.visit('/')
+        cy.wait(7000)
+    })
     it(`Url should contain "de" after click on "DE"`, () => {
         cy.contains('DE').click();
         cy.wait(1000)

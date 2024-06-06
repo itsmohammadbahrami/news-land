@@ -59,4 +59,13 @@ describe('Filter functionality', () => {
             .should('have.class', 'bg-blue-primary text-white')
     });
 
+    it('Should filter news on click second tag', () => {
+        cy.findByTestId(testIds.filters.categoryTags)
+            .contains(getArray(enTexts.filters.categoryItems)[1])
+            .click()
+
+        cy.findByTestId(`${testIds.news.item}-0`)
+            .contains(getArray(enTexts.filters.categoryItems)[1])
+    });
+
 });

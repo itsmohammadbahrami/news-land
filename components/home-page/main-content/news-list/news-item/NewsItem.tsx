@@ -3,12 +3,14 @@ import { Image, Tag, Typography } from "antd"
 import { INews } from "@/types"
 
 interface Props {
-    news: INews
+    news: INews;
+    testId?: string;
 }
 
-const NewsItem: React.FC<Props> = ({ news }) => (
+const NewsItem: React.FC<Props> = ({ news, testId }) => (
     <section
         className="flex flex-wrap gap-5 pe-4 py-4 cursor-pointer hover:shadow-xl hover:rounded-lg transition-shadow"
+        data-testid={testId}
         onClick={() => window.open(news.newsUrl, '_blank')}
     >
         <div className="w-[20rem] max-md:w-full">

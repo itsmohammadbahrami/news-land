@@ -21,12 +21,6 @@ export const testIds = {
         tabs: 'news-tabs',
         searchInput: 'news-search-input',
         listContainer: 'news-list-container',
-        item: {
-            container: 'news-item-container',
-            image: 'news-item-image',
-            title: 'news-item-title',
-            description: 'news-item-description',
-            tags: 'news-item-tags',
-        },
+        item: 'news-item',
     }
 }

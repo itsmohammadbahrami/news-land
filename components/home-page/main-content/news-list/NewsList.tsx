@@ -3,8 +3,8 @@ import { useMemo } from "react"
 import { useTranslations } from "next-intl"
 import { Spin, Typography } from "antd"
 import { useAppSelector } from "@/store"
-import NewsItem from "./news-item"
 import { testIds } from "@/utils"
+import NewsItem from "./news-item"
 
 const NewsList = () => {
     const { loading, news, selectedTab } = useAppSelector(state => state.news)
@@ -36,8 +36,9 @@ const NewsList = () => {
             {
                 filteredNews &&
                 filteredNews.length > 0 &&
-                filteredNews.map((newsItem) =>
+                filteredNews.map((newsItem, index) =>
                     <NewsItem
+                        testId={`${testIds.news.item}-${index}`}
                         key={newsItem.title}
                         news={newsItem}
                     />

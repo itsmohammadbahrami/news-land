@@ -1,6 +1,6 @@
 # NewsLand
 
-A simple news app that displays news from three different sources: News.org, The Guardian, and NY Times.
+A simple news app that displays news from three different sources: `News.org, The Guardian, and NY Times`
 
 ## Technologies
 

@@ -26,37 +26,34 @@ export const getNews = createAsyncThunk(
                     },
                 }
             );
-            // const guardianAPIReq = axiosGuardianAPI.get('',
-            //     {
-            //         validateStatus: null,
-            // params: {
-            //  q: searchText,
-            //  'from-date':queries?.date?.start?? undefined,
-            //  'to-date':queries?.date?.end?? undefined,
-            //  }
-            //     }
-            // );
-            // const timesAPIReq = axiosNYTimesAPI.get('',
-            //     {
-            //         validateStatus: null,
-            // params: { 
-            // q: searchText ,
-            // begin_date:queries?.date?.start.replace(/-/g, '')?? undefined,
-            // end_date:queries?.date?.end.replace(/-/g, '')?? undefined,
-            // }
-            //     }
-            // );
+            const guardianAPIReq = axiosGuardianAPI.get('',
+                {
+                    validateStatus: null,
+                    params: {
+                        q: queries?.searchText,
+                        'from-date': queries?.date?.start ?? undefined,
+                        'to-date': queries?.date?.end ?? undefined,
+                    }
+                }
+            );
+            const timesAPIReq = axiosNYTimesAPI.get('',
+                {
+                    validateStatus: null,
+                    params: {
+                        q: queries?.searchText,
+                        begin_date: queries?.date?.start.replace(/-/g, '') ?? undefined,
+                        end_date: queries?.date?.end.replace(/-/g, '') ?? undefined,
+                    }
+                }
+            );
 
-            const [newsAPIRes,
-                // guardianAPIRes, timesAPIRes
-            ] = await axios.all([newsAPIReq,
-                // guardianAPIReq, timesAPIReq
-            ]);
+            const [newsAPIRes, guardianAPIRes, timesAPIRes] =
+                await axios.all([newsAPIReq, guardianAPIReq, timesAPIReq]);
 
             const data: INews[] = [
                 ...convertNewsApiData(newsAPIRes.data?.articles),
-                // ...convertGuardianApiData(guardianAPIRes.data?.response?.results),
-                // ...convertTimesApiData(timesAPIRes.data?.response?.docs),
+                ...convertGuardianApiData(guardianAPIRes.data?.response?.results),
+                ...convertTimesApiData(timesAPIRes.data?.response?.docs),
             ]
 
             return data;

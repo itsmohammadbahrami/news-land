@@ -54,9 +54,7 @@ docker build -t news-land .
 docker run -p 3000:3000 news-land
 ```
 
-### 4. Open browser and navigate to
-
-[Your Localhost](http://localhost:3000)
+### 4. Open browser and navigate to [localhost](http://localhost:3000)
 
 ## Naming Conventions
 

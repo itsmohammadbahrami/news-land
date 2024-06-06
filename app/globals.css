@@ -51,3 +51,8 @@ body {
 .adm-calendar-picker-popup {
    z-index: 10000 !important;
 }
+
+.adm-button-primary {
+   background-color: #355fde !important;
+   border-color: #355fde !important;
+}

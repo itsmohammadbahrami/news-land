@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 import { useTranslations } from "next-intl"
 import { AutoComplete } from "antd"
 import { DefaultOptionType } from "antd/es/select";
@@ -7,6 +9,7 @@ import FiltersWrapper from "../filters-wrapper";
 
 const SourceFilter = () => {
     const dispatch = useAppDispatch();
+    const [value, setValue] = useState<string>()
     const { news, selectedTab } = useAppSelector(state => state.news)
     const feedSource = useAppSelector(state => state.feed.source)
     const filterSource = useAppSelector(state => state.filters.source)
@@ -17,18 +20,23 @@ const SourceFilter = () => {
         label: item.source,
     }))
 
+    useEffect(() => {
+        setValue(selectedTab === 'All News' ? filterSource : feedSource)
+    }, [selectedTab]) // eslint-disable-line
+
     return (
         <FiltersWrapper title={texts("source")} testId={testIds.filters.source}>
             <AutoComplete
-                data-testid={testIds.filters.sourceInput}
                 className="w-52"
-                value={selectedTab === 'All News' ? filterSource : feedSource}
+                data-testid={testIds.filters.sourceInput}
+                value={value}
                 options={removeDuplicates(options, 'value')}
                 onSelect={(value) =>
                     selectedTab === 'All News' ?
                         dispatch(setFiltersSource(value)) :
                         dispatch(setFeedSource(value))
                 }
+                onChange={(value) => setValue(value)}
                 placeholder={texts("sourcePlaceholder")}
                 filterOption={(inputValue, option) =>
                     option!.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
